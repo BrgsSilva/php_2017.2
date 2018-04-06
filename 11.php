@@ -17,8 +17,8 @@
         
         $num= $_POST['num1'];
         
-        $antecessor= ($num1-1);
-        $sucessor= ($num1+1);
+        $antecessor= --$num;
+        $sucessor= ++$num;
         
         echo "O antecessor desse numero é: $antecessor <br>";
         
