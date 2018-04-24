@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Exercicio 02</title>
+        <title>Exercicio 05</title>
     </head>
     <body>
        <form action="#" method="POST">
@@ -11,11 +11,11 @@
         <?php
         $numero = $_POST['numero'];
         
-        if($numero %2 ==0)
-            echo "Esse número é par";
+        if($numero>5 && $numero>20)
+            echo "Esse número éstá entre 5 e 20";
         
          else
-            echo "Esse número é impar"
+            echo "Esse número não está entre 5 e 20"
         
         
        ?> 

@@ -1,21 +1,25 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Exercicio 02</title>
+        <title>Exercicio 06</title>
     </head>
     <body>
        <form action="#" method="POST">
         <label for="numero">Numero</label>
         <input type="number" name="numero">
+        <label for="num">Numero2</label>
+        <input type="number" name="num">
        </form>
         <?php
         $numero = $_POST['numero'];
+        $num = $_POST['num'];
+        $res = $x;
         
-        if($numero %2 ==0)
-            echo "Esse número é par";
+        if($numero>$num)
+          $x = ($numero + $num);
         
-         else
-            echo "Esse número é impar"
+        else
+          $x = ($numero * $num);
         
         
        ?> 
