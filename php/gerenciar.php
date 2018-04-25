@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['logado'])) {
     header("Location: login.php");
     die();
@@ -21,68 +20,46 @@ if (!isset($_SESSION['logado'])) {
         <title>Área Restrita!</title>
         <style>
             .container {
-
                 padding: 0;
                 margin: 0;
                 widht: 100%;
                 height: 100%;
                 min-height: 800px;
                 background-color: #fff;
-
             }
-
             #layout { 
-
                 width: 100%;
                 height: 100%;
                 min-height: 800px;
-
             }
-
             #layout td {
-
                 vertical-align: top;
                 border: 1px solid #e7e7e7;
-
             }
-
             #layout tr:nth-child(1) td:nth-child(1) {
-
                 padding: 20px;
                 width: 250px;
                 height: 100%;
                 background-color: #f0f0f0;
                 border-right: 1px solid #e7e7e7;
-
             }
-
             #layout tr:nth-child(1) td:nth-child(2) {
-
                 background-color: #fff;
                 height: 100%;
-
             }
-
             .typeContainer {
-
                 padding: 20px;
                 min-height: 100px;
                 width: 100%;
                 background-color: #fff;
                 border-bottom: 1px solid #e7e7e7;
-
             }
-
             .typeHeader {
-
                 color: #7f7f7f;
                 text-transform: uppercase;
                 font-size: 10pt;
-
             }
-
             .itemContainer {
-
                 width: 220px;
                 padding: 10px;
                 height: 80px;
@@ -90,62 +67,41 @@ if (!isset($_SESSION['logado'])) {
                 background-color: #fff;
                 margin-top: 10px;
                 margin-bottom: 10px;
-
             }
-
             .itemConnected {
-
                 color: #3c763d;
                 background-color: #dff0d8;
                 border: 1px solid #d6e9c6;
                 border-radius: 6px;
-
             }
-
             .itemAttempting {
-
                 color: #b8823b;
                 background-color: #fcf8e3;
                 border: 1px solid #faebcc;
                 border-radius: 6px;
-
             }
-
             .itemNotConnected {
-
                 color: #b84442;
                 background-color: #f2dede;
                 border: 1px solid #ebccd1;
                 border-radius: 6px;
-
             }
-            
             .itemLinks {
-
                 color: #425bb8;
                 background-color: #ddeaef;
                 border: 1px solid #ebccd1;
                 border-radius: 6px;
-
             }
-
             .itemHostname {
-
                 text-align: center;
                 font-weight: bold;
                 font-size: 10pt;
-
             }
-
             .itemSummary {
-
                 text-align: center;
                 font-size: 8pt;
-
             }
-
             .itemStatus {
-
                 background-color: #fff;
                 text-align: center;
                 font-size: 8pt;
@@ -153,34 +109,19 @@ if (!isset($_SESSION['logado'])) {
                 border: 1px solid #e7e7e7;
                 border-bottom: 1px solid #d3d3d3;
                 border-top: 1px solid #fff;
-
             }
-
             .fa-check {
-
                 color: #3c763d;
-
             }
-
             .fa-remove {
-
                 color: #af4442;  
-
             }
-
             .panel-heading {
-
                 padding: 8px!important;
-
             }
-
             .panel-body {
-
                 padding: 8px!important;
-
             }
-
-
         </style>
     </head>
     <body>
@@ -189,6 +130,7 @@ if (!isset($_SESSION['logado'])) {
                 <tr>
                     <td>
                         <h1 align="center">Bem Vindo <?= $usuario['nome'] ?></h1>
+                        <p align="center"><a href="#" data-target="#modalSenha" data-toggle="modal">Alterar Senha</a>
                         <p align="center"><a href="deslogar.php">Deslogar</a>
                     </td>
                 <div class="row">
@@ -258,6 +200,37 @@ if (!isset($_SESSION['logado'])) {
                 </div>     
                 </tr>
             </table>
+        </div>
+
+        <div class="modal" tabindex="-1" role="dialog" id="modalSenha">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Alterar Senha</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <fieldset>
+                            <form id="formSenha" method="post" action="alterarSenha.php">
+                                <div class="form-group">
+                                    <label for="newPass">Nova Senha</label>
+                                    <input type="password" name="senhanova" id="newPass" class="form-contol" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="oldPass">Senha Atual</label>
+                                    <input type="password" name="senhavelha" id="oldPass" class="form-contol" required>
+                                </div>
+                            </form>
+                        </fieldset>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" form="formSenha" class="btn btn-primary">Alterar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Optional JavaScript -->

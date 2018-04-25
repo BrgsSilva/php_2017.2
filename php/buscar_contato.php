@@ -1,12 +1,11 @@
 <?php
 include_once './crud_contato.php';
 session_start();
+
 if (!isset($_SESSION['logado'])) {
     header("Location: login.php");
     die();
 }
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-$contato = getContatoEmail($email);
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -21,24 +20,26 @@ $contato = getContatoEmail($email);
         <title>Área Restrita!</title>
     </head>
     <body>
-        <div class="container col-md-8 offset-2" style="margin-top: 2%" align="center">
+        <div class="container col-md-8 offset-md-2" style="margin-top: 2%" align="center">
             <td>
                 <h1 align="center">Bem Vindo <?= $_SESSION['logado']['nome'] ?></h1>
                 <p align="center"><a href="deslogar.php">Deslogar</a>
             </td>
             <div class="row">
-                <div class="col-8 offset-2">
-                    <fieldset>
-                        <legend>Detalhes do Contato</legend>
-                        <div class="jumbotron">
-                            <p><strong>Nome:</strong> <?= $contato['contact_name'] ?></p>
-                            <p><strong>E-mail:</strong> <?= $contato['contact_email'] ?></p>
-                            <p><strong>Mensagem:</strong><br> <?= $contato['contact_message'] ?></p>
+                <div class="col-6 offset-3".
+                <fieldset>
+                    <legend>Localizar contato</legend>
+                    <form action="detail_contato.php" method="post">
+                        <div class="form-group"col-6>
+                            <label for="id_mail">E-mail</label>
+                            <input id ="id_mail" name="email" class="form-control" placeholder="Informe o email" required>
                         </div>
-                    </fieldset>
-                </div>
-            </div>
+                        <button type="submit" class= "btn btn-warning">Buscar</button>
+                    </form>    
+                </fieldset>
+            </div>       
         </div>
+     </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
