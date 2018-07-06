@@ -38,8 +38,7 @@ public class AdministradorDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			stmt = conexao
-					.prepareStatement("select id, nome, login from administrador where login = ? and senha =  md5(?)");
+			stmt = conexao.prepareStatement("select id, nome, login from administrador where login = ? and senha =  md5(?)");
 
 			stmt.setString(1, login);
 			stmt.setString(2, senha);
