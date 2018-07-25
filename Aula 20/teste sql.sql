@@ -1,6 +1,6 @@
 create schema if not exists aula19;
 
-use aula19;
+use aula20;
 
 create table if not exists cliente(
 
