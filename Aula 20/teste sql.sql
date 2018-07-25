@@ -1,4 +1,4 @@
-create schema if not exists aula19;
+create schema if not exists aula 20;
 
 use aula20;
 
